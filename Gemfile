@@ -9,9 +9,6 @@ gem "rails", "~> 7.0.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-gem 'bootstrap', '~> 4.5.2'
-gem 'jquery-rails'
-
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
@@ -74,10 +71,4 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-end
-
-group :development, :test do
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-  gem "faker"
 end
