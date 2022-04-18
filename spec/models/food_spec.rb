@@ -84,6 +84,10 @@ RSpec.describe Food, type: :model do
       expect(Food.by_letter("N")).to eq([food3, food1])
     end
   end
-end  
+
+  it "has a valid factory" do
+    expect(FactoryBot.build(:food)).to be_valid
+  end
+end
 
 # bundle exec rspec -fd
