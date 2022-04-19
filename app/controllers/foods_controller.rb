@@ -22,7 +22,7 @@ class FoodsController < ApplicationController
   end
 
   def foods_params
-    params.require(:item).permit(:name, :category, :description, :price)
+    params.require(:food).permit(:name, :category, :description, :price)
   end
 
   def new
@@ -30,7 +30,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    foods = Food.create(params.require(:item).permit(:name, :category, :description, :price))
+    foods = Food.create(params.require(:food).permit(:name, :category, :description, :price))
 
     redirect_to foods_path
   end

@@ -1,0 +1,13 @@
+<h3>Edit <%= @food.name %></h3>
+<body>
+  <%= form_with model: @food, url: foods_update_path do |f| %>
+  <%= f.text_field :name, placeholder: "name" %>
+  <select name="category" id="category">
+    <option value="food">food</option>
+    <option value="beverages">beverages</option>
+  </select>
+  <%= f.text_field :description, placeholder: "description" %>
+  <%= f.text_field :price, placeholder: "price" %>
+  <%= f.submit 'Update Item'%>
+<% end %>
+</body>

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root to: "foods#index", as: "foods_index"
 
+  # get "/items/new", to: "items#new", as: "items_new"
+  # post "/items/new", to: "items#create", as: "items_create"
+
   get "/:id", to: "foods#show", as: "foods_show"
   
   get "/:id/edit", to: "foods#edit", as: "foods_edit"
