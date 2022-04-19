@@ -79,3 +79,7 @@ group :development, :test do
   gem "faker"
 end
 
+group :development, :test do
+  # -cut-
+  gem 'rails-controller-testing'
+end
