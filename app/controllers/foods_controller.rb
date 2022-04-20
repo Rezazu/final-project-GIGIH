@@ -4,6 +4,10 @@ class FoodsController < ApplicationController
     @foods = Food.all
   end
 
+  def home
+    @foods = Food.all
+  end
+
   def show
     @food = Food.find(params[:id])
   end

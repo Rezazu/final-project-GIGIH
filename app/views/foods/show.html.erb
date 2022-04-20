@@ -1,9 +1,15 @@
-<h1>Food detail</h1>
 <body>
-  <p>Food name : <%= @food.name %></p>
-  <p>Food category : <%= @food.category %></p>
-  <p>Food description : <%= @food.description %></p>
-  <p>Food price : <%= @food.price %></p>
+  <div class="sidebar">
+    <a class="active" href="/">Home</a>
+    <a href="/orders">Orders</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="form">
+    <p>Food name : <%= @food.name %></p>
+    <p>Food category : <%= @food.category %></p>
+    <p>Food description : <%= @food.description %></p>
+    <p>Food price : <%= @food.price %></p>
+  </div>
 </body>
 
 <style>

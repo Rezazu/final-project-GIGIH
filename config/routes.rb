@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # get "/items/new", to: "items#new", as: "items_new"
   # post "/items/new", to: "items#create", as: "items_create"
-  
+
   #Show food by params
   get "/:id",
     to: "foods#show",
@@ -22,6 +22,6 @@ Rails.application.routes.draw do
     as: "foods_update"
   #delete food by params
   delete "/foods/:id/delete", 
-    to: "foods#destroy", as: 
-    "foods_delete"
+    to: "foods#destroy", 
+    as: "foods_delete"
 end

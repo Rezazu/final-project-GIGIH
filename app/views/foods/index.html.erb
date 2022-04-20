@@ -4,47 +4,86 @@
   require("@rails/activestorage").start()
   require("channels")
 </script>
-
-<header>
-  <div class="navbar">
-    <h1> Our Menu </h1>
-<!--     <a class="order" href="/foods/new"><h2>Orders</h2></a> -->
-  </div>
-</header>
 <body>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col"><b>Name</b></th>
-        <th scope="col"><b>Category</b></th>
-        <th scope="col"><b>Description</b></th>
-        <th scope="col"><b>Price</b></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @foods.each do |food| %>
-        <tr>
-          <td><%= food.name %></td>
-          <td><%= food.category %></td>
-          <td><%= food.description %></td>
-          <td><%= food.price %></td>
-          <td class="button">
-            <a class="margin" href="/foods/<%=food.id%>">Show</a>
-            <a class="margin" href="/<%=food.id%>/edit">Edit</a>
-            <%= button_to "Delete", foods_delete_path(food.id), :method => 'delete' %>
-          </td>
-          
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <a href="/foods/new">New Item</a>
+  
+  <div class="sidebar">
+    <a class="active" href="/">Home</a>
+    <a href="/orders">Orders</a>
+    <a href="#about">About</a>
+  </div>
+  <div class="top-wrapper">
+    <div class="container">
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="content-container">
+      <div class="food-wrapper border-2">
+        <% @foods.each do |food| %>
+        <div class="parent">
+          <div class="child" style="width: 18rem;">
+            <img src="http://kbu-cdn.com/dk/wp-content/uploads/nasi-goreng-kencur-kemangi.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <p class="card-text"><%= food.description %></p>
+            </div>
+          </div>
+          <p class="name"><%= food.name %></p>
+          <a class="btn btn-success" href="/foods/<%=food.id%>" role="button">Show</a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-wrapper">
+    <div class="bottom-container">
+      <button class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+  Database
   </button>
+    </div>
+  </div>
 </body>
 
-<style>
-  body{
-  background-image:url("https://img.freepik.com/free-vector/realistic-white-golden-geometric-background_79603-2032.jpg?w=2000");
-  background-size:cover;
-  }
-</style>
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Database</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped" style="width:100%;>
+        <thead class="table-dark" style="background:#c12217;">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col" style="width:50%;">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr>
+              <td class="name" ><%= food.name %></td>
+              <td class="category" ><%= food.category %></td>
+              <td class="description" ><%= food.description %></td>
+              <td class="price" >Rp. <%= food.price %></td>
+              <td class="button">
+                <a class="btn btn-primary" href="/<%=food.id%>/edit" role="button">Edit</a>
+                <button class="btn btn-danger" href="/<%=food.id%>/edit" role="button">Delete</button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <a class="btn btn-primary" href="/new" role="button">Add</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

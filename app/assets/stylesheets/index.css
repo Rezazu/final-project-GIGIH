@@ -5,3 +5,105 @@
   .margin{
     margin-right:5px;
   }
+
+  body{
+  background-image:url("https://wallpaperaccess.com/full/1109099.jpg");
+  background-size:cover;
+  }
+
+.top-wrapper{
+  width:100%;
+  height:100px;
+}
+.content-wrapper{
+    width:100%;
+  height:1000px;
+}
+.bottom-wrapper{
+  width:100%;
+  height:200px;
+  background:#c12217;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.bottom-container{
+  padding-top:25px;
+  margin-left:225px;
+}
+
+.food-wrapper{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.food-wrapper.hover{
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.table{
+  table-layout: auto;
+  width: 1200px;
+  border: 1px solid black;
+}
+
+.btn{
+  margin:2px;
+  width:100px;
+  height:35px;
+}
+.btn-wrapper {
+  padding: 20px 20px;
+}
+
+td{
+  font-size:16px;
+}
+
+.content-container{
+  margin-left:200px;
+  padding: 30px 10px;
+}
+
+.container{
+  padding-top:16px;
+}
+
+.sidebar {
+  width: 150px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #c12217;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #909090;
+  color: white;
+}
+
+.parent{
+  margin-left:6px;
+  float:left;
+  padding-left:16px;
+}
+
+.card-body{
+  background:rgba(240,241,246,0.7);
+}
+
+.parent p{
+  text-align:center;
+  padding-top:10px;
+}
