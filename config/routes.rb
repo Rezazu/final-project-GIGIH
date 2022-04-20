@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     to: "foods#update", 
     as: "foods_update"
   #delete food by params
-  delete "/foods/:id/delete", 
+  delete "/foods/:id", 
     to: "foods#destroy", 
     as: "foods_delete"
 end

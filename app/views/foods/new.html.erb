@@ -1,27 +1,27 @@
-
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Our Menu</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="foods/new">Add new Menu</a>
-        <a class="nav-link" href="/orders">Orders</a>
-      </div>
-        </div>
-      </div>
-    </nav>
+<body>
+  <div class="sidebar">
+    <a class="active" href="/"><h5>Home</h5></a>
+    <a href="/orders">Orders</a>
+    <a href="#about">About</a>
   </div>
-  </header>
-<h3>Create an Item</h3>
-<%= form_with model: @food do |form| %>
-  <%= form.text_field :name, placeholder: "name" %>
-  <%= form.text_field :category, placeholder: "category" %>
-  <%= form.text_field :description, placeholder: "description" %>
-  <%= form.text_field :price, placeholder: "price" %>
-  <%= form.submit %>
+  <div class="top-wrapper">
+    <h2>Create an Item</h2>
+  </div>
+  <div class="form">
+    <%= form_with model: @food do |form| %>
+    <div class="mb-3">
+      <%= form.text_field :name, placeholder: "name", :class => 'form-control' %>
+    </div> 
+    <div class="mb-3">
+      <%= form.text_field :category, placeholder: "category" , :class => 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.text_field :description, placeholder: "description" , :class => 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.text_field :price, placeholder: "price" , :class => 'form-control' %>
+    </div>
+  <%= form.submit%>
 <% end %>
+  </div>
+</body>

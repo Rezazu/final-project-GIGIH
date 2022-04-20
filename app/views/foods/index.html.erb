@@ -7,40 +7,49 @@
 <body>
   
   <div class="sidebar">
-    <a class="active" href="/">Home</a>
+    <img src="https://st2.depositphotos.com/1031343/5867/v/380/depositphotos_58676587-stock-illustration-catering-stamp.jpg?forcejpeg=true" class="img-logo" style="width:200px;">
+    <a class="active" href="/"><h5>Home</h5></a>
     <a href="/orders">Orders</a>
-    <a href="#about">About</a>
-  </div>
-  <div class="top-wrapper">
-    <div class="container">
-    </div>
+    <a href="/about">About</a>
+    <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+  Database
+  </button>
   </div>
   <div class="content-wrapper">
     <div class="content-container">
+      <h2>CATERING SERVICE.</h2>
       <div class="food-wrapper border-2">
         <% @foods.each do |food| %>
         <div class="parent">
           <div class="child" style="width: 18rem;">
-            <img src="http://kbu-cdn.com/dk/wp-content/uploads/nasi-goreng-kencur-kemangi.jpg" class="card-img-top" alt="...">
+            <% if food.category == "food"%>
+              <img src="https://image-cdn.medkomtek.com/Dd70gq8gbttDcJLDEbkVD2wbvoo=/640x640/smart/klikdokter-media-buckets/medias/2321296/original/049998000_1605579809-Waspada_-Inilah-Deretan-Penyakit-Akibat-Junk-Food-shutterstock_537665956.jpg" class="card-img-top" alt="...">
+            <% elsif food.category == "beverage"%>
+              <img src="https://i.pinimg.com/originals/d6/fa/e8/d6fae83663966ccb64f8810df5c5634e.png" class="card-img-top" alt="...">
+            <% end%>
             <div class="card-body">
-              <p class="card-text"><%= food.description %></p>
+              <div class="card-wrapper">
+                <h4><%= food.name %></h4>
+              </div>
             </div>
           </div>
-          <p class="name"><%= food.name %></p>
-          <a class="btn btn-success" href="/foods/<%=food.id%>" role="button">Show</a>
+          <div class="info-wrapper">
+            <h5>Rp. <%= food.price %></h5>
+            <a class="btn btn-success" href="/foods/<%=food.id%>" role="button">Show</a>
+          </div>
         </div>
         <% end %>
       </div>
     </div>
   </div>
+</body>
+<footer>        
   <div class="bottom-wrapper">
     <div class="bottom-container">
-      <button class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
-  Database
-  </button>
+      
     </div>
   </div>
-</body>
+</footer>
 
 <!-- Modal -->
 
@@ -73,13 +82,13 @@
               <td class="price" >Rp. <%= food.price %></td>
               <td class="button">
                 <a class="btn btn-primary" href="/<%=food.id%>/edit" role="button">Edit</a>
-                <button class="btn btn-danger" href="/<%=food.id%>/edit" role="button">Delete</button>
+                <%= button_to "Delete", foods_delete_path(food.id), :method => 'delete', :class => 'btn btn-danger'%>
               </td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <a class="btn btn-primary" href="/new" role="button">Add</a>
+      <a class="btn btn-primary" href="foods/new" role="button">Add</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

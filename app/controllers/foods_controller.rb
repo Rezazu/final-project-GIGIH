@@ -18,9 +18,6 @@ class FoodsController < ApplicationController
 
   def update
     @food = Food.find(params[:id])
-    # @name = Item.find(params[:name])
-    # @price = Item.find(params[:price])
-
     @food.update(foods_params)
     redirect_to foods_path
   end
