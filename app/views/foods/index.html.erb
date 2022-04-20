@@ -5,41 +5,46 @@
   require("channels")
 </script>
 
-<h1> Our Menu </h1>
-<table>
-  <thead>
-    <tr>
-      <td><b>Name</b></td>
-      <td><b>Category</b></td>
-      <td><b>Description</b></td>
-      <td><b>Price</b></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @foods.each do |food| %>
+<header>
+  <div class="navbar">
+    <h1> Our Menu </h1>
+<!--     <a class="order" href="/foods/new"><h2>Orders</h2></a> -->
+  </div>
+</header>
+<body>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= food.name %></td>
-        <td><%= food.category %></td>
-        <td><%= food.description %></td>
-        <td><%= food.price %></td>
-        <td class="button">
-          <a class="margin" href="/foods/<%=food.id%>">Show</a>
-          <a class="margin" href="/<%=food.id%>/edit">Edit</a>
-          <%= button_to "Delete", foods_delete_path(food.id), :method => 'delete' %>
-        </td>
-        
+        <th scope="col"><b>Name</b></th>
+        <th scope="col"><b>Category</b></th>
+        <th scope="col"><b>Description</b></th>
+        <th scope="col"><b>Price</b></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<a href="/foods/new">New Item</a>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.category %></td>
+          <td><%= food.description %></td>
+          <td><%= food.price %></td>
+          <td class="button">
+            <a class="margin" href="/foods/<%=food.id%>">Show</a>
+            <a class="margin" href="/<%=food.id%>/edit">Edit</a>
+            <%= button_to "Delete", foods_delete_path(food.id), :method => 'delete' %>
+          </td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <a href="/foods/new">New Item</a>
+  </button>
+</body>
 
 <style>
-  .button{
-    display:flex;
-  }
-
-  .margin{
-    margin-right:5px;
+  body{
+  background-image:url("https://img.freepik.com/free-vector/realistic-white-golden-geometric-background_79603-2032.jpg?w=2000");
+  background-size:cover;
   }
 </style>
