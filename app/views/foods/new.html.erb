@@ -1,27 +1,34 @@
 <body>
   <div class="sidebar">
+    <img src="https://st2.depositphotos.com/1031343/5867/v/380/depositphotos_58676587-stock-illustration-catering-stamp.jpg?forcejpeg=true" class="img-logo" style="width:200px;">
     <a class="active" href="/"><h5>Home</h5></a>
     <a href="/orders">Orders</a>
-    <a href="#about">About</a>
+    <a href="/about">About</a>
   </div>
-  <div class="top-wrapper">
-    <h2>Create an Item</h2>
-  </div>
-  <div class="form">
-    <%= form_with model: @food do |form| %>
-    <div class="mb-3">
-      <%= form.text_field :name, placeholder: "name", :class => 'form-control' %>
-    </div> 
-    <div class="mb-3">
-      <%= form.text_field :category, placeholder: "category" , :class => 'form-control' %>
+  <div class="content-wrapper">
+    <div class="content-container">
+      <h2>CREATE <span>New Menu</span></h2>
+      <div class="form-create">
+        <%= form_with model: @food do |form| %>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <%= form.text_field :name, placeholder: "name", :class => 'form-control' %>
+        </div> 
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Category</label>
+          <%= form.text_field :category, placeholder: "category" , :class => 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Description</label>
+          <%= form.text_field :description, placeholder: "description" , :class => 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Price (in Rupiah)</label>
+          <%= form.text_field :price, placeholder: "price" , :class => 'form-control' %>
+        </div>
+        <%= form.submit 'Create', :class => 'btn btn-danger'%>
+      <% end %>
+      </div>
     </div>
-    <div class="mb-3">
-      <%= form.text_field :description, placeholder: "description" , :class => 'form-control' %>
-    </div>
-    <div class="mb-3">
-      <%= form.text_field :price, placeholder: "price" , :class => 'form-control' %>
-    </div>
-  <%= form.submit%>
-<% end %>
   </div>
 </body>

@@ -1,19 +1,36 @@
 <body>
   <div class="sidebar">
+    <img src="https://st2.depositphotos.com/1031343/5867/v/380/depositphotos_58676587-stock-illustration-catering-stamp.jpg?forcejpeg=true" class="img-logo" style="width:200px;">
     <a class="active" href="/"><h5>Home</h5></a>
     <a href="/orders">Orders</a>
-    <a href="#about">About</a>
+    <a href="/about">About</a>
   </div>
-  <div class="top-wrapper">
-    <h2>Edit <%= @food.name%></h2>
-  </div>
-  <div class="form">
-    <%= form_with model: @food, url: foods_update_path do |f| %>
-    <%= f.text_field :name, placeholder: "name" %>
-    <%= f.text_field :category, placeholder: "category" %>
-    <%= f.text_field :description, placeholder: "description" %>
-    <%= f.text_field :price, placeholder: "price" %>
-    <%= f.submit 'Update Item'%>
-    <% end %>
+  <div class="content-wrapper">
+    <div class="content-container">
+      <h2>EDIT <span><%= @food.name%></span></h2>
+      <div class="form-edit">
+        <%= form_with model: @food, url: foods_update_path do |f| %>
+          <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <%= f.text_field :name, placeholder: "name", :class => 'form-control' %>
+          </div>
+          <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Category</label>
+          <%= f.text_field :category, placeholder: "category", :class => 'form-control' %>
+          </div> 
+          <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Description</label>
+          <%= f.text_area :description, placeholder: "description",:class => 'form-control' %>
+          </div>
+          <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Price ( in Rupiah )</label>
+          <%= f.text_field :price, placeholder: "price",:class => 'form-control' %>
+          </div>
+        <%= f.submit 'Update', :class => 'btn btn-danger'%>
+        <% end %>
+      </div>
+    </div>
   </div>
 </body>
+
+          
