@@ -1,4 +1,8 @@
-  button{
+body{
+/*   font-family:Lato; */
+}
+
+button{
     display:flex;
   }
 
