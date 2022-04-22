@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   resources :foods
-
+  
   #root
   root to: "foods#index", 
     as: "foods_index"
 
-  # get "/items/new", to: "items#new", as: "items_new"
-  # post "/items/new", to: "items#create", as: "items_create"
-
+  #FOOD MODEL
   #Show food by params
   get "/:id",
     to: "foods#show",
@@ -24,4 +22,10 @@ Rails.application.routes.draw do
   delete "/foods/:id", 
     to: "foods#destroy", 
     as: "foods_delete"
+
+  #ORDERS MODEL
+  get "/orders",
+    to: "orders#index",
+    as: "orders_index"
+  
 end
