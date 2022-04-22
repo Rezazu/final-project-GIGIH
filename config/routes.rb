@@ -33,6 +33,10 @@ Rails.application.routes.draw do
   delete "/orders/:id", 
     to: "orders#destroy", 
     as: "orders_delete"
+
+  patch "orders/:id/update", 
+    to: "orders#update", 
+    as: "orders_update"
   
 
   #ORDERS DETAIL MODEL

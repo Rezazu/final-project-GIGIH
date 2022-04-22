@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    orders = Order.create(params.require(:order).permit(:email, :detail_id, :date, :status, :item_quantity))
+    orders = Order.create(params.require(:order).permit(:email, :detail_id, :date, :status, :total_price))
 
     redirect_to orders_path
   end
@@ -21,7 +21,19 @@ class OrdersController < ApplicationController
     
   end
 
+  def edit
+    @order = Order.find(params[:id])
+    @foods = Food.all
+  end
+
   def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to orders_path
+  end
+
+  def order_params
+    params.require(:order).permit(:email, :detail_id, :date, :status, :total_price)
   end
 
   def destroy

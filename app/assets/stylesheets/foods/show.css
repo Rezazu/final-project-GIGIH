@@ -31,3 +31,19 @@
   background-color: #909090;
   color: white;
 }
+
+.form h3{
+  opacity: 0.8;
+  font-weight:bold;
+  font-size: 45px;
+  letter-spacing: 5px;
+  color:#c12217;
+}
+
+.form span{
+  opacity: 0.8;
+  font-weight:bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color:#c12217;
+}
