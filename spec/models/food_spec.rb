@@ -88,6 +88,18 @@ RSpec.describe Food, type: :model do
   it "has a valid factory" do
     expect(FactoryBot.build(:food)).to be_valid
   end
+
+  it "is invalid if character have more than 150 characters" do
+    food = Food.create(
+      name: "Pizza",
+      description: "Piza (menurut KBBI) (atau pizza) adalah hidangan gurih dari Italia sejenis adonan bundar dan pipih, yang dipanggang di oven dan biasanya dilumuri saus tomat serta keju dengan bahan makanan tambahan lainnya yang bisa dipilih",
+      price: 75000
+    )
+    food.valid?
+    
+    expect(food.errors[:description]).to include("cannot have more than 150 characters")
+  end
+  
 end
 
 # bundle exec rspec -fd

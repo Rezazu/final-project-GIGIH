@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
-  get 'order_detail/create'
-  get 'order_detail/update'
-  get 'order_detail/destroy'
-  get 'order_detail/show'
-  get 'orders/create'
-  get 'orders/update'
-  get 'orders/destroy'
-  get 'orders/show'
   resources :foods
+  resources :orders
+  resource :order_details
   
   #root
   root to: "foods#index", 
@@ -35,5 +29,16 @@ Rails.application.routes.draw do
   get "/orders",
     to: "orders#index",
     as: "orders_index"
+
+  delete "/orders/:id", 
+    to: "orders#destroy", 
+    as: "orders_delete"
+  
+
+  #ORDERS DETAIL MODEL
+
+  get "/orders/:order_id",
+    to: "order_detail#index",
+    as: "detail_index"
   
 end

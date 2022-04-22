@@ -1,0 +1,42 @@
+.orders-container{
+/*   margin-right:10px; */
+  width:100%;
+  height:1000px;
+  background-image:url("https://wallpaperaccess.com/full/1109099.jpg");
+  background-size:cover;
+}
+
+.orders-body{
+  margin-left:240px;
+  padding:20px;
+}
+
+.orders-body h2 {
+  opacity: 0.8;
+  font-weight:bold;
+  font-size: 45px;
+  letter-spacing: 5px;
+  color:#c12217;
+}
+
+.orders-body span{
+  font-size: 30px;
+  color:black;
+}
+.table{
+  text-align:center;
+}
+
+
+.thead{
+  font-size:20px;
+}
+
+.email, .order_id, .date, .total_price, .status{
+  font-size:18px;
+  vertical-align: middle;
+}
+
+.btn-wrapper{
+  display:inline-block;
+}

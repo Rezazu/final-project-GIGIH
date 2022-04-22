@@ -1,0 +1,52 @@
+<body>
+    <div class="sidebar">
+      <img src="https://st2.depositphotos.com/1031343/5867/v/380/depositphotos_58676587-stock-illustration-catering-stamp.jpg?forcejpeg=true" class="img-logo" style="width:200px;">
+      <a class="active" href="/"><h5>Home</h5></a>
+      <a href="/orders">Orders</a>
+      <a href="/about">About</a>
+  </div>
+  <div class="orders-container">
+    <div class="orders-body">
+      <h2>ORDER <span>LIST</span></h2>
+      <table class="table table-dark table-striped" style="width:100%;>
+        <thead class="table-dark" style="background:#c12217;">
+          <tr class="thead">
+            <th scope="col">ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Detail_id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total Price</th>
+            <th scope="col" style="width:10%;">Status</th>
+            <th scope="col" style="width:20%;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr class="tbody">
+              <td class="id" ><%= order.id %></td>
+              <td class="email" ><%= order.email %></td>
+              <td class="detail_id" ><%= order.detail_id %></td>
+              <td class="date" ><%= order.date %></td>
+              <td class="total_price" >Rp. <%= order.total_price %></td>
+              <td class="status" >
+                <% if order.status == "NEW" %>
+                    <b style="color:#fcec00;"><%= order.status %></b>
+                <% elsif order.status == "PAID" %>
+                    <b style="color:#00ff26;"><%= order.status %></b>
+                <% elsif order.status == "CANCELLED" %>
+                    <b style="color:#fc1100;"><%= order.status %></b>
+                <% end %>
+              </td>
+              <td class="btn-wrapper">
+                <a class="btn btn-success btn-sm" href="/<%=order.id%>/edit" role="button" style="width:50px; text-align:center;">Detail</a>
+                <a class="btn btn-primary btn-sm" href="/<%=order.id%>/edit" role="button" style="width:50px; text-align:center;">Edit</a>
+                <%= button_to "Delete", orders_delete_path(order.id), :method => 'delete', :class => 'btn btn-danger btn-sm', style: "width:55px; text-align:center;"%>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <a class="btn btn-success btn-sm" href="/orders/new" role="button" style="text-align:center;">Create Order</a>
+    </div>
+  </div>
+</body>

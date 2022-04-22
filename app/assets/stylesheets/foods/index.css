@@ -56,7 +56,6 @@ td{
 .content-container{
   margin-left:250px;
   padding:20px;
-/*   padding: 30px 10px; */
 }
 
 .container{
@@ -114,15 +113,7 @@ margin-bottom:5px;
   padding-top:10px;
 }
 
-.card-wrapper h5{
-  
-}
-
 .info-wrapper{
   text-align:center;
   padding: 5px 0px;
-}
-
-.info-wrapper h4{
-
 }

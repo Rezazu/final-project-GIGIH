@@ -1,0 +1,84 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+  <div class="sidebar">
+    <img src="https://st2.depositphotos.com/1031343/5867/v/380/depositphotos_58676587-stock-illustration-catering-stamp.jpg?forcejpeg=true" class="img-logo" style="width:200px;">
+    <a class="active" href="/"><h5>Home</h5></a>
+    <a href="/orders">Orders</a>
+    <a href="/about">About</a>
+  </div>
+  <div class="content-wrapper">
+    <div class="content-container">
+      <h2>CREATE <span>New Order</span></h2>
+      <div class="form-create">
+        <%= form_with model: @order do |form| %>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <%= form.text_field :email, placeholder: "email", :class => 'form-control' %>
+        </div> 
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">ID Detail</label>
+          <%= form.text_field :detail_id, placeholder: "detail_id" , :class => 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label" input type="date">Date (YYYY-MM-DD)</label>
+          <%= form.text_field :date, placeholder: "date" , :class => 'form-control' %>
+        </div>
+        <div class="mb-3">
+
+
+
+        <table class="table table-striped" style="width:100%;>
+        <thead class="table-dark" style="background:#c12217;">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr>
+              <td class="name" ><%= food.name %></td>
+              <td class="quantity">
+                <%= form_with model: @detail do |f| %>
+                <%= f.text_field :item_quantity, placeholder: "0" , :class => 'form-control' %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+        <label for="form-select form-select-lg mb-3" class="form-label">Status</label>
+        <div class="mb-3">
+          <%= form.select(:status, options_for_select(['NEW','PAID', 'CANCELLED'])) %>
+        </div>
+        <%= form.submit 'Create', :class => 'btn btn-danger'%>
+      <% end %>
+      </div>
+    </div>
+  </div>
+
+        
+</body>
+<script type="text/javascript">
+    function addMore(){
+    $("#dynamic-inputs").append($("#original-inputs").html())
+  }
+
+  function submiForm() {
+    let data = []
+    $("[name='label']").each((i, item)=>
+    {
+      data.push({'label': item.value, 'amount':  $("[name='amount']")[i].value})
+    })
+    console.log({'quote_amounts': data})
+    $.ajax({
+        url: 'urlOfYourActionController',
+        data: {'quote_amounts': data},
+        type: 'POST',
+        success: function(data){
+            // handle your success here
+            console.log(data);
+        }
+    });
+  }
+</script>

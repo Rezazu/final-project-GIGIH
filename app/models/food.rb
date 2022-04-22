@@ -4,8 +4,8 @@ class Food < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.01 }
 
   has_many :categories, through: :menu_categories
-  has_many :orders
-  has_many :orders, through: :menu_orders
+  has_many :orders_detail
+  has_many :orders, through: :order_detail
 
   
   def self.by_letter(letter)
