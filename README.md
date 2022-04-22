@@ -23,3 +23,8 @@ SQLite would work in development but we don't recommend running it in production
 ## Help
 
 If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Alternatively you can [ask in the community](https://replit.com/talk/ask). Feel free to report bugs [here](https://replit.com/bugs) and give us feedback [here](https://Replit/feedback).
+
+### Disclaimer
+I Only finishedd about 70% of the user story. I finished CRUD session on Food model, also with the price>0.01, description.length<150 validation. I Make the main page only showed the menu and you need to open modal to access the database.
+
+As for the orders, I'm still confused on how im gonna make orders table work with order_details. So all i did is finished orders table (with validation) which are not connected to order_details table. It made orders table unable to process total_price thus return it empty.

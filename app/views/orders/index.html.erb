@@ -38,7 +38,7 @@
                 <% end %>
               </td>
               <td class="btn-wrapper">
-                <a class="btn btn-success btn-sm" href="orders/<%=order.id%>/detail" role="button" style="width:50px; text-align:center;">Detail</a>
+                <a class="btn btn-success btn-sm" href="#orders/<%=order.id%>/detail" role="button" style="width:50px; text-align:center;">Detail</a>
                 <a class="btn btn-primary btn-sm" href="orders/<%=order.id%>/edit" role="button" style="width:50px; text-align:center;">Edit</a>
                 <%= button_to "Delete", orders_delete_path(order.id), :method => 'delete', :class => 'btn btn-danger btn-sm', style: "width:55px; text-align:center;"%>
               </td>

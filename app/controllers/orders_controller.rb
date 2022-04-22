@@ -11,6 +11,9 @@ class OrdersController < ApplicationController
   end
 
   def create
+    # @order = Order.new(order_params)
+    # @order.item_id = Food.find(params[:id])
+    # @total = @order.calculate_total(@Food.price, :item_quantity)
     orders = Order.create(params.require(:order).permit(:email, :detail_id, :date, :status, :total_price))
 
     redirect_to orders_path
