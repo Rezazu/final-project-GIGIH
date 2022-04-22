@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_detail/create'
+  get 'order_detail/update'
+  get 'order_detail/destroy'
+  get 'order_detail/show'
+  get 'orders/create'
+  get 'orders/update'
+  get 'orders/destroy'
+  get 'orders/show'
   resources :foods
   
   #root
